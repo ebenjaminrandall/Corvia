@@ -197,13 +197,13 @@ P_RV = +ptrans_RV ;
 
 %% Lumped circulatory model
 
-V0_col = 40; 
-s      = 10; 
-P_LA_col = exp(s * (V_LA / V0_col - 1));
-P_RA_col = exp(s * (V_RA / V0_col - 1));
+% V0_col = 40; 
+% s      = 10; 
+% P_LA_col = exp(s * (V_LA / V0_col - 1));
+% P_RA_col = exp(s * (V_RA / V0_col - 1));
 
-P_LA = E_LA * V_LA + P_LA_col; 
-P_RA = E_RA * V_RA + P_RA_col; 
+P_LA = E_LA * V_LA;% + P_LA_col; 
+P_RA = E_RA * V_RA;% + P_RA_col; 
 P_SV = V_SV / C_SV;
 P_PV = V_PV / C_PV;
 P_PA = V_PA / C_PA ;

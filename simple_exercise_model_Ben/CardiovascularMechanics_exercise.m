@@ -27,11 +27,11 @@ M(3,3) = 0;
 M(4,4) = 0;
 options = odeset('Mass',M,'RelTol',1e-6,'AbsTol',1e-6,'MaxStep',stim_period/50);
 
-[t,y] = ode15s(@dXdT_cardiovascular_mechanics_exercise,[0 50*stim_period],init,options,pars,stim_period,theta);
-% init = y(end,:);
-% % save init init
-% [t,y] = ode15s(@dXdT_cardiovascular_mechanics_exercise,[0 2*stim_period],init,options,pars,stim_period,theta);
-% o = zeros(14,length(t)); 
+[t,y] = ode15s(@dXdT_cardiovascular_mechanics_exercise,[0 20*stim_period],init,options,pars,stim_period,theta);
+init = y(end,:);
+% save init init
+[t,y] = ode15s(@dXdT_cardiovascular_mechanics_exercise,[0 2*stim_period],init,options,pars,stim_period,theta);
+o = zeros(14,length(t)); 
 for i = 1:length(t) 
     [~,o(:,i)] = dXdT_cardiovascular_mechanics_exercise(t(i),y(i,:),pars,stim_period,theta);
 end 
@@ -73,7 +73,7 @@ sigmapas_RV  = o(14,:);
 
 %% Plotting Baseline
 
-figureson = 1; 
+figureson = 0; 
 
 figure(1)
 clf
